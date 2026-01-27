@@ -1,0 +1,46 @@
+import mongoose from "mongoose"
+
+const productSchema = new mongoose.Schema({
+    linkedProducts:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Product",
+    }],
+    name:{
+        type:String,
+        required:true,
+    },
+    category:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Categories",
+        required:true,
+    },
+    productQuantity:{
+        type:Number,
+        required:true,
+    },
+    price:{
+        type:Number,
+        required:true,
+    },
+    skuNumber:{
+        type:String,
+        required:true,
+        unique:true,
+    },
+    description:{
+        type:String,
+        required:true,
+    },
+    isAvailable:{
+        type:Boolean,
+        default:false,
+    },
+    sizeAvailable:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Size",
+    }],
+    productImages:[{
+        type:String,
+    }],
+},
+{timestamps:true})

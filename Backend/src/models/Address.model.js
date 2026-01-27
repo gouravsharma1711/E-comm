@@ -1,0 +1,50 @@
+import mongoose from "mongoose"
+
+const addressSchema = new mongoose.Schema({
+    owner:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true,
+    },
+    createdBy:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true,
+    },
+    receiverName:{
+        type:String,
+        required:true,
+        lowercase:true,
+    },
+    houseNumber:{
+        type:String,
+        required:true,
+    },
+    streetName:{
+        type:String,
+        required:true,
+    },
+    landmark:{
+        type:String,
+        lowercase:true,
+    },
+    district:{
+        type:String,
+        required:true,
+    },
+    state:{
+        type:String,
+        required:true,
+    },
+    pincode:{
+        type:String,
+        required:true,
+    },
+    country:{
+        type:String,
+        required:true,
+    },
+},
+    {timestamps:true}
+)
+export const Address =new mongoose.model("Address",addressSchema);
